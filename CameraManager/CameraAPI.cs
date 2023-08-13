@@ -5,21 +5,18 @@ namespace CameraManager;
 
 public static class CameraAPI
 {
-	public static Camera CloneCamera(Camera source, bool copyParenting)
+	public static Camera CloneCamera(Camera source)
 	{
-		var gameObject = source.gameObject;
-		if (copyParenting && gameObject.transform.parent != null)
-		{
-			gameObject = Instantiate(gameObject, gameObject.transform.parent);
-		}
-		else
-		{
-			gameObject = Instantiate(gameObject);
-		}
+		// Instantiate duplicates all components attached to the game object
+		// This is necessary for fog, etc. to work
+		var gameObject = Instantiate(source.gameObject);
+
+		// The player camera has child objects that we don't need
 		for (int i = gameObject.transform.childCount; i > 0; --i)
 		{
 			Destroy(gameObject.transform.GetChild(i - 1).gameObject);
 		}
+
 		return gameObject.GetComponent<Camera>();
 	}
 }
