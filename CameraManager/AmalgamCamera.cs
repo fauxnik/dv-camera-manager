@@ -27,7 +27,7 @@ public class AmalgamCamera : MonoBehaviour
 
 		if ((cameraTypes & CameraType.World) > 0)
 		{
-			Camera? camera = CloneCamera(PlayerManager.PlayerCamera, "AmalgamCamera (World)");
+			Camera? camera = CloneCamera(CameraAPI.GetCamera(CameraType.World), "AmalgamCamera (World)");
 			if (camera == null)
 			{
 				// TODO: log error/warning
@@ -37,7 +37,7 @@ public class AmalgamCamera : MonoBehaviour
 
 		if ((cameraTypes & CameraType.UI) > 0)
 		{
-			Camera? camera = CloneCamera(new List<Camera>(Camera.allCameras).Find(cam => cam.name == "SecondCamera"), "AmalgamCamera (UI)");
+			Camera? camera = CloneCamera(CameraAPI.GetCamera(CameraType.UI), "AmalgamCamera (UI)");
 			if (camera == null)
 			{
 				// TODO: log error/warning
@@ -47,7 +47,7 @@ public class AmalgamCamera : MonoBehaviour
 
 		if ((cameraTypes & CameraType.Effects) > 0)
 		{
-			Camera? camera = CloneCamera(new List<Camera>(Camera.allCameras).Find(cam => cam.name == "ThirdCamera"), "AmalgamCamera (Effects)");
+			Camera? camera = CloneCamera(CameraAPI.GetCamera(CameraType.Effects), "AmalgamCamera (Effects)");
 			if (camera == null)
 			{
 				// TODO: log error/warning
