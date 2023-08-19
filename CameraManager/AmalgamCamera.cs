@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CameraManager;
@@ -63,6 +64,26 @@ public class AmalgamCamera : MonoBehaviour
 				_fieldOfView = camera.fieldOfView;
 			else if (!Mathf.Approximately(camera.fieldOfView, _fieldOfView))
 				camera.fieldOfView = _fieldOfView;
+		}
+	}
+
+	public Camera? GetCamera(CameraType type)
+	{
+		try
+		{
+			return cameras[type];
+		}
+		catch
+		{
+			return default;
+		}
+	}
+
+	public void Render()
+	{
+		foreach (Camera camera in cameras.Values.OrderBy(c => c.depth))
+		{
+			camera.Render();
 		}
 	}
 
