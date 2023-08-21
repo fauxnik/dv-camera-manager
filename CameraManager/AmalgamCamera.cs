@@ -31,7 +31,7 @@ public class AmalgamCamera : MonoBehaviour
 			Camera? camera = CloneCamera(CameraAPI.GetCamera(CameraType.World), "AmalgamCamera (World)");
 			if (camera == null)
 			{
-				// TODO: log error/warning
+				Main.LogWarning($"Couldn't find {CameraType.World} camera.");
 			}
 			else { cameras.Add(CameraType.World, camera); }
 		}
@@ -41,7 +41,7 @@ public class AmalgamCamera : MonoBehaviour
 			Camera? camera = CloneCamera(CameraAPI.GetCamera(CameraType.UI), "AmalgamCamera (UI)");
 			if (camera == null)
 			{
-				// TODO: log error/warning
+				Main.LogWarning($"Couldn't find {CameraType.UI} camera.");
 			}
 			else { cameras.Add(CameraType.UI, camera); }
 		}
@@ -51,7 +51,7 @@ public class AmalgamCamera : MonoBehaviour
 			Camera? camera = CloneCamera(CameraAPI.GetCamera(CameraType.Effects), "AmalgamCamera (Effects)");
 			if (camera == null)
 			{
-				// TODO: log error/warning
+				Main.LogWarning($"Couldn't find {CameraType.Effects} camera.");
 			}
 			else { cameras.Add(CameraType.Effects, camera); }
 		}
