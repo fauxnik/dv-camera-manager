@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.Object;
 
@@ -5,6 +7,14 @@ namespace CameraManager;
 
 public static class CameraAPI
 {
+	public static Camera GetCamera(CameraType type) => type switch
+	{
+		CameraType.World => PlayerManager.PlayerCamera,
+		CameraType.UI => new List<Camera>(Camera.allCameras).Find(cam => cam.name == "SecondCamera"),
+		CameraType.Effects => new List<Camera>(Camera.allCameras).Find(cam => cam.name == "ThirdCamera"),
+		_ => throw new ArgumentOutOfRangeException(nameof(type), $"Unexpected camera type: {type}"),
+	};
+
 	public static Camera CloneCamera(Camera source)
 	{
 		// Instantiate duplicates all components attached to the game object
