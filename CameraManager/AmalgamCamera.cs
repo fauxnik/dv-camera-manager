@@ -56,21 +56,6 @@ public class AmalgamCamera : MonoBehaviour
 			else { cameras.Add(CameraType.UI, camera); }
 		}
 
-		if ((cameraTypes & CameraType.Effects) > 0)
-		{
-			Camera? camera = null;
-			try
-			{
-				camera = CloneCamera(CameraAPI.GetCamera(CameraType.Effects), "AmalgamCamera (Effects)");
-			}
-			catch {}
-			if (camera == null)
-			{
-				Main.LogWarning($"Couldn't find {CameraType.Effects} camera.");
-			}
-			else { cameras.Add(CameraType.Effects, camera); }
-		}
-
 		foreach ((_, Camera camera) in cameras)
 		{
 			if (camera == null) { continue; }

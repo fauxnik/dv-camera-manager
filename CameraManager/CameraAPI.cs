@@ -13,7 +13,6 @@ public static class CameraAPI
 		{
 			CameraType.World => PlayerManager.PlayerCamera,
 			CameraType.UI => new List<Camera>(Camera.allCameras).Find(cam => cam.name == "SecondCamera"),
-			CameraType.Effects => new List<Camera>(Camera.allCameras).Find(cam => cam.name == "ThirdCamera"),
 			_ => throw new ArgumentOutOfRangeException(nameof(type), $"Unexpected camera type: {type}"),
 		};
 
