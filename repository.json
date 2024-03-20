@@ -2,6 +2,11 @@
 	"Releases": [
 		{
 			"Id": "CameraManager",
+			"Version": "1.1.1",
+			"DownloadUrl": "https://github.com/fauxnik/dv-camera-manager/releases/download/v1.1.1/CameraManager_v1.1.1.zip"
+		},
+		{
+			"Id": "CameraManager",
 			"Version": "1.1.0",
 			"DownloadUrl": "https://github.com/fauxnik/dv-camera-manager/releases/download/v1.1.0/CameraManager_v1.1.0.zip"
 		},

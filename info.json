@@ -1,6 +1,6 @@
 {
 	"Id": "CameraManager",
-	"Version": "1.1.0",
+	"Version": "1.1.1",
 	"DisplayName": "Camera Manager",
 	"Author": "Niko Fox",
 	"EntryMethod": "CameraManager.Main.Load",
